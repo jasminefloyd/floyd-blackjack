@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floyd's Blackjack</title>
+    <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+    <div class="app-container" id="app-container-start">
+        <h1>Welcome to </br> Floyd's Blackjack</h1>
+        <p id="topMessage">Want to play a round? <br /> Press the button to Start</p>
+        <button id="start-btn" onclick="startGame()">Start Game</button>
+        <hr />
+        <p id="rules">These are the rules for Blackgame</p>
+    </div>
+
+    <div class="app-container" id="app-container-main">
+        <h1>Floyd's 21 Blackjack</h1>
+        <p id="topMessage">Want to play a round?</p>
+        <h2 id="counter">0</h2>
+        <p id="cards-main"></p>
+        <p id="bottomMessage"></p>
+        <button id="draw-btn" onclick="drawNewCard()">Draw New Card</button>
+        <button id="deal-btn" onclick="startGame()">Deal Again</button>
+        <p id="momTested">Mom Tested ❤️</p>
+    </div>
+    
+
+
+
+
+
+
+    <script src="./assets/index.js"></script>
+</body>
+</html>

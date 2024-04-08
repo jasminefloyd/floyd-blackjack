@@ -58,11 +58,10 @@ function checkBlackJack() {
 
 
 function newCard() {
-    let card = 6
+    let card = Math.floor(Math.random() * 11) + 1
     sum += card
     cards.push(card)
     cardsEl.textContent = "Cards: " + cards + " "
     sumEl.textContent = sum
     checkBlackJack()
-
 }

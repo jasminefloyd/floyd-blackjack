@@ -1,62 +1,68 @@
-var hasBlackjack = false
-var isGameOver = false
-var newLog = document.getElementById('bottomMessage')
-var counterEl = document.getElementById('counter')
-var mainAppContainerEl = document.getElementById('app-container-main')
-var startAppContainerEl = document.getElementById('app-container-start')
-var cardsEl = document.getElementById('cards-main')
-var drawBtnEl = document.getElementById('draw-btn')
-
+let firstCard
+let secondCard
+let cards
+let sum
+let hasBlackJack = false
+let isAlive = true
+let message = ""
+let messageEl = document.getElementById("bottomMessage")
+let sumEl = document.getElementById("counter")
+let cardsEl = document.getElementById("cards-main")
+let drawBtnEl = document.getElementById('draw-btn')
+let dealBtnEl = document.getElementById('deal-btn')
+let mainAppContainerEl = document.getElementById('app-container-main')
+let startAppContainerEl = document.getElementById('app-container-start')
 mainAppContainerEl.style.display = `none`
 
-
-
-
-function playBlackJack(cards){
-    var cards = []
-    var firstCard = Math.floor(Math.random() * 11) + 1
-    var secondCard = Math.floor(Math.random() * 11) + 1
-    cards.push(firstCard, secondCard)
-    cardsEl.innerText = "Cards: " + cards[0] + " " + cards[1]
-    var sum = cards[0] + cards[1]
-    counterEl.textContent = sum
-    if (sum <= 20) {
-        newLog.innerText = "Do you want to deal again?";
-        drawBtnEl.style.display = `inline`
-    } else if (sum === 21){
-        newLog.innerHTML = "Woohoo! You've got Blackjack!";
-        drawBtnEl.style.display = `none`
-        hasBlackjack = true
-    } else {
-        newLog.innerHTML = "Busted! You're out of the game!";
-        isGameOver = true;
-        drawBtnEl.style.display = `none`
-    }
-
-   return cards, sum
+function renderGame() {
+    shuffleCards()
+    checkBlackJack()
 }
 
-function dealNewCard(cards, sum) {
-    var newCard = Math.floor(Math.random() * 11) + 1
-    cards.push(newCard)
-    counterEl.textContent = sum += newCard
-    cardsEl.innerText = "Cards: " + cards[0] + " " + cards[1] + " " + cards[2]
+function startGame() {
+    hideGameBoard()
+    renderGame()
 }
-
-function checkBlackjack(){
-    if (sum === 21) {
-        
-        startGame()
-    } 
-}
-
 
 function hideGameBoard(){
     startAppContainerEl.style.display = `none`
     mainAppContainerEl.style.display = `block`
+ }
+
+ function shuffleCards() {
+    firstCard = Math.floor(Math.random() * 11) + 1
+    secondCard = Math.floor(Math.random() * 11) + 1
+    cards = [firstCard, secondCard]
+    sum = cards[0] + cards[1]  
+    cardsEl.textContent = "Cards: " + cards + " "
+    sumEl.textContent = sum
+ }
+
+
+
+function checkBlackJack() {
+    if (sum <= 20) {
+        message = "Do you want to draw a new card?"
+        drawBtnEl.style.display = `inline`
+    } else if (sum === 21) {
+        message = "You've got Blackjack!"
+        hasBlackJack = true
+        drawBtnEl.style.display = `none`
+    } else {
+        message = "You're out of the game!"
+        isAlive = false
+        drawBtnEl.style.display = `none`
+    }
+    messageEl.textContent = message
 }
 
-function startGame(){
-    hideGameBoard()
-    playBlackJack()
+
+function newCard() {
+    let card = 6
+    sum += card
+    cards.push(card)
+    cardsEl.textContent = "Cards: " + cards + " "
+    sumEl.textContent = sum
+    checkBlackJack()
+
 }

@@ -12,7 +12,7 @@ let drawBtnEl = document.getElementById('draw-btn')
 let dealBtnEl = document.getElementById('deal-btn')
 let mainAppContainerEl = document.getElementById('app-container-main')
 let startAppContainerEl = document.getElementById('app-container-start')
-// // mainAppContainerEl.style.display = `none`
+mainAppContainerEl.style.display = `none`
 
 function renderGame() {
     shuffleCards()

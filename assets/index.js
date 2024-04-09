@@ -68,3 +68,20 @@ function newCard() {
     sumEl.textContent = sum
     checkBlackJack()
 }
+
+
+
+
+
+
+image_array = [
+    'Lilith10.png',
+    'Lilith11.png',
+    'Lilith12.png',
+    'Lilith13.png',
+    'Lilith14.png']
+
+function get_card_image2(){
+    random_index = Math.floor(Math.random() * image_array.lenght);
+    selected_image = image_array[random_index]
+    document.getElementById('image_shower').src = './images/$selected_image}'}

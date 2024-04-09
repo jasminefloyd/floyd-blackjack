@@ -29,15 +29,16 @@ function hideGameBoard(){
     mainAppContainerEl.style.display = `block`
  }
 
- function shuffleCards() {
+ function shuffleCards(i) {
     firstCard = Math.floor(Math.random() * 11) + 1
     secondCard = Math.floor(Math.random() * 11) + 1
     cards = [firstCard, secondCard]
     sum = cards[0] + cards[1]  
-    cardsEl.textContent = "Cards: " + cards + " "
     sumEl.textContent = sum
+    for (let i = 0; i < cards.length; i++) {
+        cardsEl.textContent = "Cards: " + cards[i]
+    }
  }
-
 
 
 function checkBlackJack() {
@@ -55,6 +56,8 @@ function checkBlackJack() {
     }
     messageEl.textContent = message
 }
+
+
 
 
 function newCard() {

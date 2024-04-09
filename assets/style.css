@@ -6,7 +6,7 @@ body {
 }
 
 .app-container {
-    background-image: url("./images/table.png");
+    background-image: url("/assets/images/table.png");
     background-size: cover;
     max-width: 80%;
     border: 2.5px solid black;

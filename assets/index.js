@@ -29,14 +29,14 @@ function hideGameBoard(){
     mainAppContainerEl.style.display = `block`
  }
 
- function shuffleCards(i) {
+ function shuffleCards() {
     firstCard = Math.floor(Math.random() * 11) + 1
     secondCard = Math.floor(Math.random() * 11) + 1
     cards = [firstCard, secondCard]
     sum = cards[0] + cards[1]  
     sumEl.textContent = sum
     for (let i = 0; i < cards.length; i++) {
-        cardsEl.textContent = "Cards: " + cards[i]
+        cardsEl.textContent = "Cards: " + cards[0] + ", " + cards[1]
     }
  }
 
@@ -59,29 +59,11 @@ function checkBlackJack() {
 
 
 
-
 function newCard() {
     let card = Math.floor(Math.random() * 11) + 1
     sum += card
     cards.push(card)
-    cardsEl.textContent = "Cards: " + cards + " "
+    cardsEl.textContent = "Cards: " + cards
     sumEl.textContent = sum
     checkBlackJack()
 }
-
-
-
-
-
-
-image_array = [
-    'Lilith10.png',
-    'Lilith11.png',
-    'Lilith12.png',
-    'Lilith13.png',
-    'Lilith14.png']
-
-function get_card_image2(){
-    random_index = Math.floor(Math.random() * image_array.lenght);
-    selected_image = image_array[random_index]
-    document.getElementById('image_shower').src = './images/$selected_image}'}

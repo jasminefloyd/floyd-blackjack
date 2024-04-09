@@ -9,7 +9,7 @@
 <body>
     <div class="app-container" id="app-container-start">
         <h1>Welcome to </br> Floyd's Blackjack</h1>
-        <p id="topMessage">Want to play a round? <br /> Press the button to Start</p>
+        <p id="topMessage">Press the button to Start</p>
         <button id="start-btn" onclick="startGame()">Start Game</button>
         <hr />
         <p id="rules">These are the rules for Blackgame</p>
@@ -17,12 +17,15 @@
 
     <div class="app-container" id="app-container-main">
         <h1>Floyd's 21 Blackjack</h1>
-        <p id="topMessage">Want to play a round?</p>
+        <p id="playerMessage"></p>
+        <p id="chipsMessage"></p>
+        <p id="topMessage">Want to play a hand?</p>
         <h2 id="counter">0</h2>
         <p id="cards-main"></p>
         <p id="bottomMessage"></p>
-        <button id="draw-btn" onclick="newCard()">Draw New Card</button>
-        <button id="deal-btn" onclick="renderGame()">Deal Again</button>
+        <button id="draw-btn" onclick="newCard()">Hit Me!</button>
+        <button id="deal-btn" onclick="shuffleCards()">Deal Again</button>
+        <br />
         <p id="momTested">Mom Tested ❤️</p>
     </div>
     

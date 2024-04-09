@@ -5,6 +5,8 @@ let cards = [ ]
 let hasBlackJack = false
 let isAlive = true
 let message = ""
+let playerEl = document.getElementById("playerMessage")
+let chipsEl = document.getElementById("chipsMessage")
 let messageEl = document.getElementById("bottomMessage")
 let sumEl = document.getElementById("counter")
 let cardsEl = document.getElementById("cards-main")
@@ -14,12 +16,22 @@ let mainAppContainerEl = document.getElementById('app-container-main')
 let startAppContainerEl = document.getElementById('app-container-start')
 mainAppContainerEl.style.display = `none`
 
+
+var player = {
+    name: "Jasmine",
+    chips: 300
+}
+
+
+
 function renderGame() {
     shuffleCards()
     checkBlackJack()
 }
 
 function startGame() {
+    playerEl.textContent = "Player: " + player.name
+    chipsEl.textContent = "Chips: $" + player.chips
     hideGameBoard()
     renderGame()
 }

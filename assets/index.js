@@ -1,7 +1,7 @@
 let firstCard
 let secondCard
-let cards
 let sum
+let cards = [ ]
 let hasBlackJack = false
 let isAlive = true
 let message = ""
@@ -35,9 +35,7 @@ function hideGameBoard(){
     cards = [firstCard, secondCard]
     sum = cards[0] + cards[1]  
     sumEl.textContent = sum
-    for (let i = 0; i < cards.length; i++) {
-        cardsEl.textContent = "Cards: " + cards[0] + ", " + cards[1]
-    }
+    cardsEl.textContent = "Cards: " + cards[0] + ", " + cards[1]
  }
 
 
@@ -62,8 +60,12 @@ function checkBlackJack() {
 function newCard() {
     let card = Math.floor(Math.random() * 11) + 1
     sum += card
-    cards.push(card)
-    cardsEl.textContent = "Cards: " + cards
     sumEl.textContent = sum
-    checkBlackJack()
+    cards.push(card)
+    cardsEl.textContent = "Cards: "
+    for (let i = 0; i < cards.length; i++) {
+        cardsEl.textContent += cards[i] + ", "
+    }   
+    checkBlackJack()     
 }
+    

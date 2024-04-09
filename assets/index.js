@@ -1,3 +1,4 @@
+//Global Variables
 let firstCard
 let secondCard
 let sum
@@ -5,6 +6,8 @@ let cards = [ ]
 let hasBlackJack = false
 let isAlive = true
 let message = ""
+
+//DOM Elements
 let playerEl = document.getElementById("playerMessage")
 let chipsEl = document.getElementById("chipsMessage")
 let messageEl = document.getElementById("bottomMessage")
@@ -16,16 +19,35 @@ let mainAppContainerEl = document.getElementById('app-container-main')
 let startAppContainerEl = document.getElementById('app-container-start')
 mainAppContainerEl.style.display = `none`
 
-
+//Objects
 var player = {
     name: "Jasmine",
-    chips: 300
+    chips: 300,
+    hand: function dealCards() {
+        firstCard = Math.floor(Math.random() * 11) + 1
+        secondCard = Math.floor(Math.random() * 11) + 1
+        cards = [firstCard, secondCard]
+        sum = cards[0] + cards[1]  
+        sumEl.textContent = sum
+        cardsEl.textContent = "Cards: " + cards[0] + ", " + cards[1]
+    },
+    hit: function newCard() {
+        let card = Math.floor(Math.random() * 11) + 1
+        sum += card
+        sumEl.textContent = sum
+        cards.push(card)
+        cardsEl.textContent = "Cards: "
+        for (let i = 0; i < cards.length; i++) {
+            cardsEl.textContent += cards[i] + ", "
+        }   
+        checkBlackJack()     
+    }
 }
 
 
-
+//Functions
 function renderGame() {
-    shuffleCards()
+    player.hand()
     checkBlackJack()
 }
 
@@ -40,16 +62,6 @@ function hideGameBoard(){
     startAppContainerEl.style.display = `none`
     mainAppContainerEl.style.display = `block`
  }
-
- function shuffleCards() {
-    firstCard = Math.floor(Math.random() * 11) + 1
-    secondCard = Math.floor(Math.random() * 11) + 1
-    cards = [firstCard, secondCard]
-    sum = cards[0] + cards[1]  
-    sumEl.textContent = sum
-    cardsEl.textContent = "Cards: " + cards[0] + ", " + cards[1]
- }
-
 
 function checkBlackJack() {
     if (sum <= 20) {
@@ -69,15 +81,5 @@ function checkBlackJack() {
 
 
 
-function newCard() {
-    let card = Math.floor(Math.random() * 11) + 1
-    sum += card
-    sumEl.textContent = sum
-    cards.push(card)
-    cardsEl.textContent = "Cards: "
-    for (let i = 0; i < cards.length; i++) {
-        cardsEl.textContent += cards[i] + ", "
-    }   
-    checkBlackJack()     
-}
+
     

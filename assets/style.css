@@ -1,3 +1,21 @@
+/* For screens smaller than 768px */ 
+@media (max-width: 768px) { 
+    .app-container { 
+      width: 100%; 
+      padding: 10px; 
+      box-sizing: border-box; 
+    } 
+  } 
+   
+  /* For screens 768px and larger */ 
+  @media (min-width: 768px) { 
+    .app-container { 
+      width: 50%; 
+      padding: 20px; 
+      box-sizing: border-box; 
+    } 
+  } 
+
 body {
     background-color: white;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -12,8 +30,8 @@ body {
     border: 2.5px solid black;
     border-radius: 10px;
     margin: auto;
-    height: 450px;
-    width: 350px;
+    height: 500px;
+    width: 650px;
 }
 
 h1 {
@@ -33,6 +51,7 @@ button {
     width: 200px;
     margin-bottom: 5px;
     border-radius: 5px;
+    display: inline-block;
 }
 
 

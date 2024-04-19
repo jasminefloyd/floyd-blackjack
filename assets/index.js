@@ -29,7 +29,7 @@ var player = {
         cards = [firstCard, secondCard]
         sum = cards[0] + cards[1]  
         sumEl.textContent = sum
-        cardsEl.textContent = "Cards: " + cards[0] + ", " + cards[1]
+        cardsEl.textContent = `Cards: ${cards[0]}, ${cards[1]}`
     },
     hit: function newCard() {
         let card = Math.floor(Math.random() * 11) + 1
